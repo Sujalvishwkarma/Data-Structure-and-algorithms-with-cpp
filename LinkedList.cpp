@@ -1,73 +1,60 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 struct Node
 {
-    int data;
+    int data ;
     Node *next;
 };
 
 class LinkedList
 {
-private:
-    Node *head;
-
-public:
-    LinkedList() : head(nullptr) {};
-    ~LinkedList()
+    private :
+    Node *head ;
+    public :
+    LinkedList()
     {
-        while (head != nullptr)
-        {
-            Node *temp = head;
-            head = head->next;
-            delete temp;
-        }
+        head = nullptr ;
     }
-    void Push(int value)
+    void insert(int value)
     {
-        Node *NewNode = new Node;
-        NewNode->data = value;
-        NewNode->next = head;
-        head = NewNode;
+        Node* NewNode = new Node ;
+        NewNode->data = value ;
+        NewNode->next = head ;
+        head = NewNode ;
     }
-    void Pop()
+    void pop()
     {
-        if (isEmpty())
+        if(head==nullptr)
         {
-            cout << "linkedlist is empty !!" << endl;
-            return;
+            cout << "List is Empty" << endl ;
+            return ;
         }
-        Node *temp = head;
-        head = temp->next;
-        delete temp;
+        Node *temp = head ;
+        head = temp->next ;
+        delete temp ;
     }
     void Display()
     {
-        Node *temp = head;
-        while (temp != nullptr)
+        Node *temp = head ;
+        while(temp!=nullptr)
         {
-            cout << temp->data << "->";
-            temp = temp->next;
+            cout << temp->data << "->" ;
+            temp = temp->next ;
         }
-    }
-    bool isEmpty()
-    {
-        return head == nullptr;
+        cout << "NULL" << endl ;       
     }
 };
 
 int main()
 {
-    LinkedList List;
-    List.Push(5);
-    List.Push(15);
-    List.Push(20);
-    List.Push(25);
-    List.Pop();
-    List.Pop();
-    List.Pop();
-    List.isEmpty();
+    LinkedList List ;
+    List.insert(51);
+    List.insert(52);
+    List.insert(53);
+    List.insert(54);
+    List.insert(55);
+    List.pop();
     List.Display();
-    List.isEmpty();
-    return 0;
+    return 0 ;
 }
