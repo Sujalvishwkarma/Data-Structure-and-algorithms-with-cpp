@@ -1,22 +1,23 @@
 #include <iostream>
 using namespace std;
+void FibonacciSeries(int n);
 
 int main()
 {
     int n;
-    cout << "Enter number";
+    cout << "Enter Number :" ;
     cin >> n;
-    cout << "Fibonnaci Series :" << endl;
-    int prev, current;
-    for (int i = 0; i <= n; i++)
+    FibonacciSeries(n);
+}
+void FibonacciSeries(int n)
+{
+    int a = 0 , b = 1 , next = 0 ;
+    for (int i = 1; i <= n; i++)
     {
-        if (i == 0)
-        {
-            prev = 0;
-            current = 1;
-        }
-        cout << current << "->";
-        prev = current;
-        current = prev + current;
+        cout << a << " " ;
+        next = a + b ;
+        a = b ;
+        b = next ;
     }
+    
 }
